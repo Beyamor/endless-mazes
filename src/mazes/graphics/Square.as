@@ -1,4 +1,4 @@
-package maze.graphics 
+package mazes.graphics 
 {
 	import flash.display.BitmapData;
 	import flash.display.Graphics;
@@ -8,23 +8,23 @@ package maze.graphics
 	import net.flashpunk.Graphic;
 	
 	/**
-	 * Draws a circle programmatically.
+	 * Draws a square programmatically.
 	 * @author beyamor
 	 */
-	public class Circle extends Graphic 
+	public class Square extends Graphic 
 	{
 		private var buffer:BitmapData,
 					color:uint,
-					radius:uint;
+					width:uint;
 					
-		private function get diameter():uint { return 2 * radius; }
+		private function get diameter():uint { return 2 * width; }
 		
-		public function Circle(radius:uint, color:uint)
+		public function Square(width:uint, color:uint)
 		{
-			this.radius	= radius;
+			this.width	= width;
 			this.color	= color;
 			
-			buffer = new BitmapData(diameter, diameter, true, 0);
+			buffer = new BitmapData(width, width, true, 0);
 			draw();
 		}
 		
@@ -34,7 +34,7 @@ package maze.graphics
 				graphics:Graphics	= circle.graphics;
 				
 			graphics.beginFill(color);
-			graphics.drawCircle(radius, radius, radius);
+			graphics.drawRect(0, 0, width, width);
 			graphics.endFill();
 			
 			buffer.draw(circle);

@@ -1,7 +1,7 @@
-package maze.entities 
+package mazes.entities 
 {
-	import maze.graphics.Circle;
-	import maze.Values;
+	import mazes.graphics.Circle;
+	import mazes.Values;
 	import net.flashpunk.Entity;
 	import net.flashpunk.utils.Input;
 	

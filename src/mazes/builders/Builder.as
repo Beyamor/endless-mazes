@@ -1,4 +1,4 @@
-package mazes.diggers 
+package mazes.builders 
 {
 	import mazes.pieces.Cell;
 	
@@ -7,9 +7,9 @@ package mazes.diggers
 	 * Digging should yield a chunk's worth of cells.
 	 * @author beyamor
 	 */
-	public interface Digger 
+	public interface Builder 
 	{
-		function dig():Vector.<Vector.<Cell>>;
+		function build():Vector.<Vector.<Cell>>;
 	}
 	
 }

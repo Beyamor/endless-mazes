@@ -1,6 +1,6 @@
 package mazes.pieces 
 {
-	import mazes.diggers.rw.RandomWalker;
+	import mazes.builders.rw.RandomWalker;
 	/**
 	 * ...
 	 * @author beyamor
@@ -23,7 +23,7 @@ package mazes.pieces
 		private function loadChunk(chunkX:int, chunkY:int):void {
 			
 			if (!chunks[chunkX]) chunks[chunkX] = new Object;
-			chunks[chunkX][chunkY] = new Chunk(chunkX, chunkY, new RandomWalker().dig());
+			chunks[chunkX][chunkY] = new Chunk(chunkX, chunkY, new RandomWalker().build());
 		}
 		
 		public function chunkExists(chunkX:int, chunkY:int):Boolean {

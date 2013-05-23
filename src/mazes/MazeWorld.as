@@ -1,7 +1,5 @@
 package mazes 
 {
-	import mazes.diggers.Digger;
-	import mazes.diggers.rw.RandomWalker;
 	import mazes.entities.Player;
 	import mazes.pieces.Chunk;
 	import mazes.pieces.Maze;

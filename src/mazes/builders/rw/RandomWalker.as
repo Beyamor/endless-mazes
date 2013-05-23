@@ -1,6 +1,6 @@
-package mazes.diggers.rw 
+package mazes.builders.rw 
 {
-	import mazes.diggers.Digger;
+	import mazes.builders.Builder;
 	import mazes.graphs.CellNode;
 	import mazes.pieces.Cell;
 	import mazes.graphs.CellGraph;
@@ -11,7 +11,7 @@ package mazes.diggers.rw
 	 * Randomly walks until it has connected all of its nodes.
 	 * @author beyamor
 	 */
-	public class RandomWalker implements Digger 
+	public class RandomWalker implements Builder 
 	{
 		
 		public function RandomWalker() 
@@ -19,7 +19,7 @@ package mazes.diggers.rw
 			
 		}
 		
-		public function dig():Vector.<Vector.<Cell>> {
+		public function build():Vector.<Vector.<Cell>> {
 			
 			var graph:CellGraph			= new CellGraph,
 				x:int					= Random.intInRange(0, Values.CHUNK_WIDTH),

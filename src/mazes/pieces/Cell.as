@@ -5,7 +5,8 @@ package mazes.pieces
 	/**
 	 * A cell is the unit of space in a maze.
 	 * It can be entered from any (or all) of the four directions north, south, east, and west.
-	 * With regards to the graph, a cell is a node with paths drawn through its edges.
+	 * With regards to the graph, a cell is (effectively) a node with paths drawn through its edges.
+	 * By connecting cells (i.e., opening them towards each other), paths can be formed.
 	 * @author beyamor
 	 */
 	public class Cell 

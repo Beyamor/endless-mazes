@@ -7,6 +7,8 @@ package mazes.builders
 	
 	/**
 	 * The builder, given a chunk's data, builds a chunk.
+	 * This includes the perfect maze inside the chunk
+	 * as well the spots for inter-chunk connections.
 	 * @author beyamor
 	 */
 	public class Builder 

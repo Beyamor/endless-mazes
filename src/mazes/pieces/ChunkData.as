@@ -1,7 +1,8 @@
 package mazes.pieces 
 {
 	/**
-	 * ...
+	 * Chunk data is the essence of a chunk.
+	 * Given this data, a builder can perfectly rebuild a chunk.
 	 * @author beyamor
 	 */
 	public class ChunkData 

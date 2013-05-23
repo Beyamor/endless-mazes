@@ -5,11 +5,15 @@ package mazes.entities
 	import net.flashpunk.Entity;
 	
 	/**
-	 * ...
+	 * Walls!
 	 * @author beyamor
 	 */
 	public class Wall extends Entity 
 	{
+		/**
+		 * To avoid a lot of needless allocations,
+		 * walls should be grabbed out of a pool.
+		 */
 		private static const pool:Vector.<Wall> = new Vector.<Wall>;
 		
 		private static var poolCount:int;

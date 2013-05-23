@@ -2,9 +2,11 @@ package mazes.pieces
 {
 	import mazes.entities.Wall;
 	import mazes.Values;
+	
 	/**
 	 * A chunk is a discrete section of the maze.
-	 * It has its own configuration of walls.
+	 * It is made up of a collection of cells.
+	 * 
 	 * @author beyamor
 	 */
 	public class Chunk 
@@ -19,11 +21,6 @@ package mazes.pieces
 			this.chunkY	= chunkY;
 			this.cells	= cells;
 		}
-		
-		private function get top():int { return 0; }
-		private function get bottom():int { return Values.CHUNK_WIDTH - 1; }
-		private function get left():int { return 0; }
-		private function get right():int { return Values.CHUNK_WIDTH - 1; }
 	}
 
 }

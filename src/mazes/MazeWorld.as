@@ -14,7 +14,8 @@ package mazes
 	import util.UpdateList;
 	
 	/**
-	 * ...
+	 * The maze world contains the maze's walls and the player.
+	 * It's actually pretty dumb.
 	 * @author beyamor
 	 */
 	public class MazeWorld extends World 

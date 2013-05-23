@@ -11,6 +11,8 @@ package mazes.graphics
 	
 	/**
 	 * A graphic of a chunk and its walls.
+	 * Because rendering each wall/floor segment indpendently is an expensive ass procedure,
+	 * it's desirable to render out a chunk as a single image of its contents.
 	 * @author beyamor
 	 */
 	public class ChunkRender extends Graphic 

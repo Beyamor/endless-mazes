@@ -3,7 +3,7 @@ package mazes.graphs
 	import mazes.pieces.Cell;
 	import mazes.Values;
 	/**
-	 * ...
+	 * A graph of cells with helper methods like getting the neighbours of a cell.
 	 * @author beyamor
 	 */
 	public class CellGraph 

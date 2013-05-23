@@ -40,6 +40,20 @@ package mazes.reification
 				maxChunkY:int	= Math.ceil(camera.bottom / Values.CHUNK_PIXEL_WIDTH),
 				chunkX:int, chunkY:int;
 				
+			// If there's reified stuff outside of the view, we can unload it and free up some memory
+			for (var xString:String in reifications) {
+				for (var yString:String in reifications[xString]) {
+					
+					chunkX = parseInt(xString);
+					chunkY = parseInt(yString);
+						
+					if (chunkX < minChunkX || chunkX > maxChunkX || chunkY < minChunkY || chunkY > maxChunkY) {
+						
+						unload(chunkX, chunkY);
+					}
+				}
+			}
+				
 			// Now, we actually wanna load a little beyond that to make sure the connections are created
 			for (chunkX = minChunkX - 1; chunkX <= maxChunkX + 1; ++chunkX) {
 				for (chunkY = minChunkY - 1; chunkY <= maxChunkY + 1; ++chunkY) {
@@ -48,6 +62,7 @@ package mazes.reification
 				}
 			}
 				
+			// Okay. Knowing that everything has been loaded, we can actually reify it as needed,
 			for (chunkX = minChunkX; chunkX <= maxChunkX; ++chunkX) {
 				for (chunkY = minChunkY; chunkY <= maxChunkY; ++chunkY) {
 					
@@ -74,6 +89,22 @@ package mazes.reification
 				
 				world.add(entity);
 			}
+		}
+		
+		private function unload(chunkX:int, chunkY:int):void {
+			
+			if (!reifications[chunkX]) return;
+			
+			if (reifications[chunkX][chunkY]) {
+				
+				for each (var entity:Entity in reifications[chunkX][chunkY]) {
+					
+					if (entity.world) entity.world.remove(entity);
+				}
+			}
+			
+			reifications[chunkX][chunkY] = null;
+			delete reifications[chunkX][chunkY];
 		}
 	}
 

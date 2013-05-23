@@ -21,6 +21,10 @@ package mazes.reification
 		
 		public function reify(chunk:Chunk):void {
 			
+			maze.add(new Floor(
+				chunk.chunkX * Values.CHUNK_PIXEL_WIDTH,
+				chunk.chunkY * Values.CHUNK_PIXEL_WIDTH));
+			
 			for (var cellX:int = 0; cellX < Values.CHUNK_WIDTH; ++cellX) {
 				for (var cellY:int = 0; cellY < Values.CHUNK_WIDTH; ++cellY) {
 					
@@ -36,7 +40,6 @@ package mazes.reification
 								isWall:Boolean	= chunk.cells[cellX][cellY].isWall[unitX][unitY];
 								
 							if (isWall)	maze.add(new Wall(worldX, worldY));
-							else		maze.add(new Floor(worldX, worldY));
 						}
 					}
 				}

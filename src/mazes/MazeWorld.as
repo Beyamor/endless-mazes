@@ -4,6 +4,7 @@ package mazes
 	import mazes.diggers.rw.RandomWalker;
 	import mazes.entities.Player;
 	import mazes.pieces.Chunk;
+	import mazes.pieces.Maze;
 	import mazes.reification.ChunkReifier;
 	import net.flashpunk.graphics.Text;
 	import net.flashpunk.World;
@@ -19,7 +20,8 @@ package mazes
 	public class MazeWorld extends World 
 	{
 		private var updateTimer:Timer,
-					updateables:UpdateList = new UpdateList;
+					updateables:UpdateList = new UpdateList,
+					maze:Maze;
 		
 		public function MazeWorld() 
 		{			
@@ -29,10 +31,8 @@ package mazes
 				new EntityCamera(player,
 					new WorldCamera(this)));
 			
-			var digger:Digger			= new RandomWalker,
-				chunk:Chunk				= new Chunk(0, 0, digger.dig()),
-				reifier:ChunkReifier	= new ChunkReifier(this);
-			reifier.reify(chunk);
+			maze = new Maze;
+			new ChunkReifier(this).reify(maze.getChunk(0, 0));
 		}
 		
 		override public function update():void 

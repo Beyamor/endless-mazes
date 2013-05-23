@@ -10,14 +10,14 @@ package mazes.pieces
 	 */
 	public class Chunk 
 	{
-		public	var gridX:int,
-					gridY:int,
+		public	var chunkX:int,
+					chunkY:int,
 					cells:Vector.<Vector.<Cell>>;
 		
-		public function Chunk(gridX:int, gridY:uint, cells:Vector.<Vector.<Cell>>) 
+		public function Chunk(chunkX:int, chunkY:uint, cells:Vector.<Vector.<Cell>>) 
 		{
-			this.gridX	= gridX;
-			this.gridY	= gridY;
+			this.chunkX	= chunkX;
+			this.chunkY	= chunkY;
 			this.cells	= cells;
 		}
 		

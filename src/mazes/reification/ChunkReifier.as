@@ -27,10 +27,10 @@ package mazes.reification
 					for (var unitX:int = 0; unitX < Values.CELL_WIDTH; ++unitX) {
 						for (var unitY:int = 0; unitY < Values.CELL_WIDTH; ++unitY) {
 							
-							var	worldX:Number	= chunk.gridX * Values.CHUNK_PIXEL_WIDTH
+							var	worldX:Number	= chunk.chunkX * Values.CHUNK_PIXEL_WIDTH
 													+ cellX * Values.CELL_PIXEL_WIDTH
 													+ unitX * Values.UNIT_WIDTH,
-								worldY:Number	= chunk.gridY * Values.CHUNK_PIXEL_WIDTH
+								worldY:Number	= chunk.chunkY * Values.CHUNK_PIXEL_WIDTH
 													+ cellY * Values.CELL_PIXEL_WIDTH
 													+ unitY * Values.UNIT_WIDTH,
 								isWall:Boolean	= chunk.cells[cellX][cellY].isWall[unitX][unitY];

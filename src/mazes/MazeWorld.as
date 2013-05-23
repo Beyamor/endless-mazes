@@ -4,8 +4,10 @@ package mazes
 	import mazes.pieces.Chunk;
 	import mazes.pieces.Maze;
 	import mazes.reification.ChunkReifier;
+	import mazes.reification.ViewLoader;
 	import net.flashpunk.graphics.Text;
 	import net.flashpunk.World;
+	import util.camera.Camera;
 	import util.camera.EntityCamera;
 	import util.camera.WorldCamera;
 	import util.Timer;
@@ -25,26 +27,14 @@ package mazes
 		{			
 			var player:Player = new Player(100, 100);
 			add(player);
-			updateables.add(
-				new EntityCamera(player,
-					new WorldCamera(this)));
+			
+			var camera:Camera = new EntityCamera(player,
+									new WorldCamera(this));
+			updateables.add(camera);
 			
 			maze = new Maze;
 			
-			var reifier:ChunkReifier = new ChunkReifier(this),
-				chunkX:int, chunkY:int;
-			
-			for (chunkX = 0; chunkX < 2; ++chunkX) {
-				for (chunkY = 0; chunkY < 2; ++chunkY) {
-					maze.loadChunk(chunkX, chunkY);
-				}
-			}
-			
-			for (chunkX = 0; chunkX < 2; ++chunkX) {
-				for (chunkY = 0; chunkY < 2; ++chunkY) {
-					reifier.reify(maze.getChunk(chunkX, chunkY));
-				}
-			}
+			updateables.add(new ViewLoader(maze, camera, new ChunkReifier(this)));
 		}
 		
 		override public function update():void 

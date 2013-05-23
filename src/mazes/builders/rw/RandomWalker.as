@@ -4,6 +4,8 @@ package mazes.builders.rw
 	import mazes.graphs.CellNode;
 	import mazes.pieces.Cell;
 	import mazes.graphs.CellGraph;
+	import mazes.pieces.Chunk;
+	import mazes.pieces.ChunkData;
 	import mazes.Values;
 	import util.Random;
 	
@@ -11,7 +13,7 @@ package mazes.builders.rw
 	 * Randomly walks until it has connected all of its nodes.
 	 * @author beyamor
 	 */
-	public class RandomWalker implements Builder 
+	public class RandomWalker extends Builder 
 	{
 		
 		public function RandomWalker() 
@@ -19,7 +21,7 @@ package mazes.builders.rw
 			
 		}
 		
-		public function build():Vector.<Vector.<Cell>> {
+		override public function buildChunk(chunkData:ChunkData):Chunk {
 			
 			var graph:CellGraph			= new CellGraph,
 				x:int					= Random.intInRange(0, Values.CHUNK_WIDTH),
@@ -41,7 +43,7 @@ package mazes.builders.rw
 				currentNode = nextNode;
 			}
 			
-			return graph.cells;
+			return new Chunk(chunkData.x, chunkData.y, graph.cells);
 		}
 	}
 

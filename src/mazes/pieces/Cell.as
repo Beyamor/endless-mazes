@@ -57,7 +57,7 @@ package mazes.pieces
 			if (isOpenToSouth)	isWall[left][bottom]	= false;
 		}
 		
-		public function openToNoth():void {
+		public function openToNorth():void {
 			
 			isOpenToNorth = true;
 			

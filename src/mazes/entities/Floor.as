@@ -13,7 +13,7 @@ package mazes.entities
 		
 		public function Floor(x:Number, y:Number) 
 		{
-			super(x, y, new Square(Values.UNIT_WIDTH * Values.CHUNK_WIDTH, 0xFFFFFF));
+			super(x, y, new Square(Values.UNIT_WIDTH, 0xFFFFFF));
 			layer = 100;
 		}
 		

@@ -1,6 +1,5 @@
 package mazes.pieces 
 {
-	import mazes.entities.Floor;
 	import mazes.entities.Wall;
 	import mazes.Values;
 	/**

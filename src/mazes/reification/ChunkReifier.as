@@ -1,6 +1,5 @@
 package mazes.reification 
 {
-	import mazes.entities.Floor;
 	import mazes.entities.Wall;
 	import mazes.graphics.ChunkRender;
 	import mazes.MazeWorld;

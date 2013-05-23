@@ -1,7 +1,10 @@
 package mazes.reification 
 {
+	import mazes.MazeWorld;
 	import mazes.pieces.Maze;
 	import mazes.Values;
+	import net.flashpunk.Entity;
+	import net.flashpunk.World;
 	import util.camera.Camera;
 	import util.Updateable;
 	
@@ -13,14 +16,15 @@ package mazes.reification
 	{
 		private var camera:Camera,
 					maze:Maze,
-					reifier:ChunkReifier,
-					chunkIsReified:Object = new Object;
+					world:MazeWorld,
+					reifier:ChunkReifier	= new ChunkReifier,
+					reifications:Object		= new Object;
 		
-		public function ViewLoader(maze:Maze, camera:Camera, reifier:ChunkReifier) 
+		public function ViewLoader(maze:Maze, world:MazeWorld, camera:Camera) 
 		{
 			this.camera		= camera;
 			this.maze		= maze;
-			this.reifier	= reifier;
+			this.world		= world;
 		}
 		
 		/* INTERFACE util.Updateable */
@@ -54,16 +58,22 @@ package mazes.reification
 		
 		private function isReified(chunkX:int, chunkY:int):Boolean {
 			
-			if (!chunkIsReified[chunkX]) return false;
-			return chunkIsReified[chunkX][chunkY];
+			if (!reifications[chunkX]) return false;
+			if (!reifications[chunkX][chunkY]) return false;
+			return true;
 		}
 		
 		private function reify(chunkX:int, chunkY:int):void {
 			
-			reifier.reify(maze.getChunk(chunkX, chunkY));
+			var entities:Vector.<Entity> = reifier.reify(maze.getChunk(chunkX, chunkY));
 			
-			if (!chunkIsReified[chunkX]) chunkIsReified[chunkX] = new Object;
-			chunkIsReified[chunkX][chunkY] = true;
+			if (!reifications[chunkX]) reifications[chunkX] = new Object;
+			reifications[chunkX][chunkY] = entities;
+			
+			for each (var entity:Entity in entities) {
+				
+				world.add(entity);
+			}
 		}
 	}
 

@@ -34,7 +34,7 @@ package mazes
 			
 			maze = new Maze;
 			
-			updateables.add(new ViewLoader(maze, camera, new ChunkReifier(this)));
+			updateables.add(new ViewLoader(maze, this, camera));
 		}
 		
 		override public function update():void 

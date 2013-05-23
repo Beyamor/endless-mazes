@@ -2,7 +2,7 @@ package
 {
 	import flash.display.Sprite;
 	import flash.events.Event;
-	import mazes.Maze;
+	import mazes.MazeWorld;
 	import net.flashpunk.Engine;
 	import net.flashpunk.FP;
 	import net.flashpunk.utils.Input;
@@ -23,7 +23,7 @@ package
 		override public function init():void 
 		{
 			super.init();
-			FP.world = new Maze;
+			FP.world = new MazeWorld;
 			
 			Input.define("up",		Key.UP,		Key.W);
 			Input.define("down",	Key.DOWN,	Key.S);

@@ -2,7 +2,7 @@ package mazes.reification
 {
 	import mazes.entities.Floor;
 	import mazes.entities.Wall;
-	import mazes.Maze;
+	import mazes.MazeWorld;
 	import mazes.pieces.Chunk;
 	import mazes.Values;
 	
@@ -12,9 +12,9 @@ package mazes.reification
 	 */
 	public class ChunkReifier 
 	{
-		private var maze:Maze;
+		private var maze:MazeWorld;
 		
-		public function ChunkReifier(maze:Maze) 
+		public function ChunkReifier(maze:MazeWorld) 
 		{
 			this.maze = maze;
 		}

@@ -16,12 +16,12 @@ package mazes
 	 * ...
 	 * @author beyamor
 	 */
-	public class Maze extends World 
+	public class MazeWorld extends World 
 	{
 		private var updateTimer:Timer,
 					updateables:UpdateList = new UpdateList;
 		
-		public function Maze() 
+		public function MazeWorld() 
 		{			
 			var player:Player = new Player(100, 100);
 			add(player);

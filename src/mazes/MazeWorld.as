@@ -31,10 +31,17 @@ package mazes
 			
 			maze = new Maze;
 			
-			var reifier:ChunkReifier = new ChunkReifier(this);
+			var reifier:ChunkReifier = new ChunkReifier(this),
+				chunkX:int, chunkY:int;
 			
-			for (var chunkX:int = 0; chunkX < 2; ++chunkX) {
-				for (var chunkY:int = 0; chunkY < 2; ++chunkY) {
+			for (chunkX = 0; chunkX < 2; ++chunkX) {
+				for (chunkY = 0; chunkY < 2; ++chunkY) {
+					maze.loadChunk(chunkX, chunkY);
+				}
+			}
+			
+			for (chunkX = 0; chunkX < 2; ++chunkX) {
+				for (chunkY = 0; chunkY < 2; ++chunkY) {
 					reifier.reify(maze.getChunk(chunkX, chunkY));
 				}
 			}

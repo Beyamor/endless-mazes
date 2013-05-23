@@ -1,5 +1,7 @@
 package mazes.pieces 
 {
+	import mazes.builders.Builder;
+	import mazes.builders.Connector;
 	import mazes.builders.rw.RandomWalker;
 	/**
 	 * ...
@@ -7,7 +9,9 @@ package mazes.pieces
 	 */
 	public class Maze 
 	{
-		private var	chunks:Object = new Object;
+		private var	chunks:Object		= new Object,
+					builder:Builder		= new RandomWalker,
+					connector:Connector	= new Connector;
 		
 		public function Maze() 
 		{
@@ -20,10 +24,15 @@ package mazes.pieces
 			return chunks[chunkX][chunkY];
 		}
 		
-		private function loadChunk(chunkX:int, chunkY:int):void {
+		public function loadChunk(chunkX:int, chunkY:int):void {
 			
 			if (!chunks[chunkX]) chunks[chunkX] = new Object;
-			chunks[chunkX][chunkY] = new Chunk(chunkX, chunkY, new RandomWalker().build());
+			chunks[chunkX][chunkY] = new Chunk(chunkX, chunkY, builder.build());
+			
+			if (chunkExists(chunkX - 1, chunkY))	connector.connect(chunks[chunkX - 1][chunkY], chunks[chunkX][chunkY]);
+			if (chunkExists(chunkX + 1, chunkY))	connector.connect(chunks[chunkX + 1][chunkY], chunks[chunkX][chunkY]);
+			if (chunkExists(chunkX, chunkY - 1))	connector.connect(chunks[chunkX][chunkY - 1], chunks[chunkX][chunkY]);
+			if (chunkExists(chunkX, chunkY + 1))	connector.connect(chunks[chunkX][chunkY + 1], chunks[chunkX][chunkY]);
 		}
 		
 		public function chunkExists(chunkX:int, chunkY:int):Boolean {

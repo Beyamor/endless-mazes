@@ -1,5 +1,6 @@
 package maze 
 {
+	import maze.entities.Player;
 	import net.flashpunk.graphics.Text;
 	import net.flashpunk.World;
 	
@@ -12,7 +13,7 @@ package maze
 		
 		public function Maze() 
 		{
-			addGraphic(new Text("a-maze-ing"));
+			add(new Player);
 		}
 		
 	}

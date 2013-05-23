@@ -1,6 +1,8 @@
 package mazes 
 {
 	import mazes.entities.Player;
+	import mazes.pieces.Chunk;
+	import mazes.reification.ChunkReifier;
 	import net.flashpunk.graphics.Text;
 	import net.flashpunk.World;
 	import util.camera.EntityCamera;
@@ -19,14 +21,15 @@ package mazes
 		
 		public function Maze() 
 		{			
-			var player:Player = new Player(Values.BLOCK_WIDTH, Values.BLOCK_WIDTH);
+			var player:Player = new Player(100, 100);
 			add(player);
 			updateables.add(
 				new EntityCamera(player,
 					new WorldCamera(this)));
 			
-			var chunk:Chunk = new Chunk(0, 0);
-			chunk.addTo(this);
+			var chunk:Chunk				= new Chunk(0, 0),
+				reifier:ChunkReifier	= new ChunkReifier(this);
+			reifier.reify(chunk);
 		}
 		
 		override public function update():void 

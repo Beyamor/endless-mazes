@@ -6,8 +6,9 @@ package mazes
 	 */
 	public class Values 
 	{
-		public static const	BLOCK_WIDTH:uint	= 48, // in pixels
-							CHUNK_WIDTH:uint	= 8; // in blocks
+		public static const	UNIT_WIDTH:uint		= 16,	// in pixels
+							CELL_WIDTH:uint		= 4,	// in units
+							CHUNK_WIDTH:uint	= 8;	// in blocks
 	}
 
 }

@@ -15,7 +15,7 @@ package mazes.entities
 		
 		public function Player(x:Number, y:Number) 
 		{
-			super(x, y, new Circle(Values.BLOCK_WIDTH / 2, 0x4444ee));
+			super(x, y, new Circle(Values.CHUNK_WIDTH * 2, 0x4444ee));
 		}
 		
 		override public function update():void 

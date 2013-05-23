@@ -32,7 +32,14 @@ package mazes
 					new WorldCamera(this)));
 			
 			maze = new Maze;
-			new ChunkReifier(this).reify(maze.getChunk(0, 0));
+			
+			var reifier:ChunkReifier = new ChunkReifier(this);
+			
+			for (var chunkX:int = 0; chunkX < 2; ++chunkX) {
+				for (var chunkY:int = 0; chunkY < 2; ++chunkY) {
+					reifier.reify(maze.getChunk(chunkX, chunkY));
+				}
+			}
 		}
 		
 		override public function update():void 

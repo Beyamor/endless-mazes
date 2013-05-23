@@ -20,7 +20,6 @@ package mazes.pieces
 		
 		public function Maze() 
 		{
-			
 		}
 		
 		/**
@@ -59,7 +58,7 @@ package mazes.pieces
 			
 			if (!chunks[chunkX]) chunks[chunkX] = new Object;
 			
-			chunks[chunkX][chunkY] = new ChunkData(chunkX, chunkY);
+			chunks[chunkX][chunkY] = new ChunkData(chunkX, chunkY, Math.random() * 0xFFFFFF);
 			
 			createConnections(chunkX, chunkY);
 		}
@@ -74,7 +73,7 @@ package mazes.pieces
 			// right/left connection
 			if (chunkExists(chunkX + 1, chunkY)) {
 				
-				y = Random.intInRange(1, Values.CHUNK_WIDTH - 1);
+				y = Random.integer(1, Values.CHUNK_WIDTH - 2);
 				chunks[chunkX][chunkY].eastConnection		= y;
 				chunks[chunkX + 1][chunkY].westConnection	= y;
 			}
@@ -82,7 +81,7 @@ package mazes.pieces
 			// left/right connection
 			if (chunkExists(chunkX - 1, chunkY)) {
 				
-				y = Random.intInRange(1, Values.CHUNK_WIDTH - 1);
+				y = Random.integer(1, Values.CHUNK_WIDTH - 2);
 				chunks[chunkX][chunkY].westConnection		= y;
 				chunks[chunkX - 1][chunkY].eastConnection	= y;
 			}
@@ -90,7 +89,7 @@ package mazes.pieces
 			// bottom/top connection
 			if (chunkExists(chunkX, chunkY + 1)) {
 				
-				x = Random.intInRange(1, Values.CHUNK_WIDTH - 1);
+				x = Random.integer(1, Values.CHUNK_WIDTH - 2);
 				chunks[chunkX][chunkY].southConnection		= x;
 				chunks[chunkX][chunkY + 1].northConnection	= x;
 			}
@@ -98,7 +97,7 @@ package mazes.pieces
 			// top/bottom connection
 			if (chunkExists(chunkX, chunkY - 1)) {
 				
-				x = Random.intInRange(1, Values.CHUNK_WIDTH - 1);
+				x = Random.integer(1, Values.CHUNK_WIDTH - 2);
 				chunks[chunkX][chunkY].northConnection		= x;
 				chunks[chunkX][chunkY - 1].southConnection	= x;
 			}

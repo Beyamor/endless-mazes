@@ -23,9 +23,10 @@ package mazes.builders.rw
 		
 		override public function buildChunk(chunkData:ChunkData):Chunk {
 			
-			var graph:CellGraph			= new CellGraph,
-				x:int					= Random.intInRange(0, Values.CHUNK_WIDTH),
-				y:int					= Random.intInRange(0, Values.CHUNK_WIDTH),
+			var	random:Random			= new Random(chunkData.seed),
+				graph:CellGraph			= new CellGraph,
+				x:int					= random.integer(0, Values.CHUNK_WIDTH - 1),
+				y:int					= random.integer(0, Values.CHUNK_WIDTH - 1),
 				currentNode:CellNode	= graph.nodes[x][y],
 				nextNode:CellNode;
 				
@@ -33,7 +34,7 @@ package mazes.builders.rw
 				
 			while (!graph.isFullyConnected) {
 				
-				nextNode = Random.any(graph.getNeighbours(currentNode));
+				nextNode = random.any(graph.getNeighbours(currentNode));
 				
 				if (!nextNode.isConnected) {
 					

@@ -11,12 +11,14 @@ package mazes.pieces
 					eastConnection:int	= -1,
 					westConnection:int	= -1,
 					northConnection:int	= -1,
-					southConnection:int	= -1;
+					southConnection:int	= -1,
+					seed:uint;
 		
-		public function ChunkData(chunkX:int, chunkY:int) 
+		public function ChunkData(chunkX:int, chunkY:int, seed:uint) 
 		{
-			this.x = chunkX;
-			this.y = chunkY;
+			this.x		= chunkX;
+			this.y		= chunkY;
+			this.seed	= seed;
 		}
 		
 	}

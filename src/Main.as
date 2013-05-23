@@ -5,6 +5,8 @@ package
 	import maze.Maze;
 	import net.flashpunk.Engine;
 	import net.flashpunk.FP;
+	import net.flashpunk.utils.Input;
+	import net.flashpunk.utils.Key;
 	
 	/**
 	 * ...
@@ -22,6 +24,11 @@ package
 		{
 			super.init();
 			FP.world = new Maze;
+			
+			Input.define("up",		Key.UP,		Key.W);
+			Input.define("down",	Key.DOWN,	Key.S);
+			Input.define("left",	Key.LEFT,	Key.A);
+			Input.define("right",	Key.RIGHT,	Key.D);
 		}
 		
 	}

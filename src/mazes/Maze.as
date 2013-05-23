@@ -19,14 +19,6 @@ package mazes
 		
 		public function Maze() 
 		{			
-			// For discrete, grid-based movement, we're only going to update the entities every couple of update pulses
-			updateTimer = new Timer(0.25);
-			updateTimer.addCallback(function():void {
-				updateEntities();
-			});
-			updateTimer.loops = true;
-			updateables.add(updateTimer);
-			
 			var player:Player = new Player(Values.BLOCK_WIDTH, Values.BLOCK_WIDTH);
 			add(player);
 			updateables.add(
@@ -37,13 +29,9 @@ package mazes
 			chunk.addTo(this);
 		}
 		
-		private function updateEntities():void {
-			
-			super.update();
-		}
-		
 		override public function update():void 
 		{
+			super.update();
 			updateables.update();
 		}
 	}

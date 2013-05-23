@@ -3,6 +3,7 @@ package mazes.entities
 	import mazes.graphics.Circle;
 	import mazes.Values;
 	import net.flashpunk.Entity;
+	import net.flashpunk.FP;
 	import net.flashpunk.utils.Input;
 	
 	/**
@@ -21,22 +22,21 @@ package mazes.entities
 		{
 			super.update();
 			
-			var	dx:int = 0, dy:int = 0;
+			var	dx:Number = 0, dy:Number = 0;
 			
 			if (Input.check("up"))		dy -= 1;
 			if (Input.check("down"))	dy += 1;
 			if (Input.check("left"))	dx -= 1;
 			if (Input.check("right"))	dx += 1;
 			
-			if (dx != 0) {
+			if (dx != 0 && dy != 0) {
 				
-				x += dx * Values.BLOCK_WIDTH;
+				dx *= Math.SQRT1_2;
+				dy *= Math.SQRT1_2;
 			}
 			
-			else if (dy != 0) {
-				
-				y += dy * Values.BLOCK_WIDTH;
-			}
+			x += dx * 200 * FP.elapsed;
+			y += dy * 200 * FP.elapsed;
 		}
 	}
 

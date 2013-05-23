@@ -2,6 +2,7 @@ package mazes.reification
 {
 	import mazes.entities.Floor;
 	import mazes.entities.Wall;
+	import mazes.graphics.ChunkRender;
 	import mazes.MazeWorld;
 	import mazes.pieces.Chunk;
 	import mazes.Values;
@@ -21,9 +22,11 @@ package mazes.reification
 		
 		public function reify(chunk:Chunk):void {
 			
-			maze.add(new Floor(
+			maze.addGraphic(
+				new ChunkRender(chunk),
+				100,
 				chunk.chunkX * Values.CHUNK_PIXEL_WIDTH,
-				chunk.chunkY * Values.CHUNK_PIXEL_WIDTH));
+				chunk.chunkY * Values.CHUNK_PIXEL_WIDTH);
 			
 			for (var cellX:int = 0; cellX < Values.CHUNK_WIDTH; ++cellX) {
 				for (var cellY:int = 0; cellY < Values.CHUNK_WIDTH; ++cellY) {

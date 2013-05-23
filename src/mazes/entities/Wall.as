@@ -14,7 +14,7 @@ package mazes.entities
 		public function Wall(x:Number, y:Number) 
 		{
 			super(x, y, new Square(Values.UNIT_WIDTH, 0x000000));
-			layer = 50;
+			visible = false; // Rendered in ChunkRender
 		}
 		
 	}

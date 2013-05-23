@@ -27,7 +27,7 @@ package mazes
 			updateTimer.loops = true;
 			updateables.add(updateTimer);
 			
-			var player:Player = new Player;
+			var player:Player = new Player(Values.BLOCK_WIDTH, Values.BLOCK_WIDTH);
 			add(player);
 			updateables.add(
 				new EntityCamera(player,

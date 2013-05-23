@@ -12,9 +12,9 @@ package mazes.entities
 	public class Player extends Entity 
 	{
 		
-		public function Player() 
+		public function Player(x:Number, y:Number) 
 		{
-			super(0, 0, new Circle(Values.BLOCK_WIDTH / 2, 0x4444ee));
+			super(x, y, new Circle(Values.BLOCK_WIDTH / 2, 0x4444ee));
 		}
 		
 		override public function update():void 

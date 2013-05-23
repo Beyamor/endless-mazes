@@ -38,9 +38,6 @@ package mazes.pieces
 					isWall[x][y] = false;
 				}
 			}
-			
-			if (isOpenToNorth)	isWall[right][top]		= false;
-			if (isOpenToSouth)	isWall[right][bottom]	= false;
 		}
 		
 		public function openToWest():void {
@@ -52,9 +49,6 @@ package mazes.pieces
 					isWall[x][y] = false;
 				}
 			}
-			
-			if (isOpenToNorth)	isWall[left][top]		= false;
-			if (isOpenToSouth)	isWall[left][bottom]	= false;
 		}
 		
 		public function openToNorth():void {
@@ -66,9 +60,6 @@ package mazes.pieces
 					isWall[x][y] = false;
 				}
 			}
-			
-			if (isOpenToWest)	isWall[left][top]	= false;
-			if (isOpenToEast)	isWall[right][top]	= false;
 		}
 		
 		public function openToSouth():void {
@@ -80,9 +71,6 @@ package mazes.pieces
 					isWall[x][y] = false;
 				}
 			}
-			
-			if (isOpenToWest)	isWall[left][bottom]	= false;
-			if (isOpenToEast)	isWall[right][bottom]	= false;
 		}
 		
 		private function get top():int { return 0; }

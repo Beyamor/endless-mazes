@@ -1,5 +1,7 @@
 package mazes 
 {
+	import mazes.diggers.Digger;
+	import mazes.diggers.rw.RandomWalker;
 	import mazes.entities.Player;
 	import mazes.pieces.Chunk;
 	import mazes.reification.ChunkReifier;
@@ -27,7 +29,8 @@ package mazes
 				new EntityCamera(player,
 					new WorldCamera(this)));
 			
-			var chunk:Chunk				= new Chunk(0, 0),
+			var digger:Digger			= new RandomWalker,
+				chunk:Chunk				= new Chunk(0, 0, digger.dig()),
 				reifier:ChunkReifier	= new ChunkReifier(this);
 			reifier.reify(chunk);
 		}

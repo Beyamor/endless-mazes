@@ -5,7 +5,9 @@ package mazes
 	import mazes.pieces.Maze;
 	import mazes.reification.ChunkReifier;
 	import mazes.reification.ViewLoader;
+	import net.flashpunk.FP;
 	import net.flashpunk.graphics.Text;
+	import net.flashpunk.utils.Input;
 	import net.flashpunk.World;
 	import util.camera.Camera;
 	import util.camera.EntityCamera;
@@ -42,6 +44,8 @@ package mazes
 		{
 			super.update();
 			updateables.update();
+			
+			if (Input.pressed("restart")) FP.world = new MazeWorld;
 		}
 	}
 

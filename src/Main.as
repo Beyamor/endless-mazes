@@ -29,8 +29,7 @@ package
 			Input.define("down",	Key.DOWN,	Key.S);
 			Input.define("left",	Key.LEFT,	Key.A);
 			Input.define("right",	Key.RIGHT,	Key.D);
-			
-			FP.console.enable();
+			Input.define("restart",	Key.BACKSPACE);
 		}
 		
 	}

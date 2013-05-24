@@ -42,7 +42,7 @@ package mazes.reification
 													+ unitY * Values.UNIT_WIDTH,
 								isWall:Boolean	= chunk.cells[cellX][cellY].isWall[unitX][unitY];
 								
-							if (isWall)	entities.push(Wall.create(worldX, worldX));
+							if (isWall)	entities.push(Wall.create(worldX, worldY));
 						}
 					}
 				}

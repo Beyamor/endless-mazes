@@ -26,7 +26,7 @@ package mazes
 		
 		public function MazeWorld() 
 		{			
-			var player:Player = new Player(100, 100);
+			var player:Player = new Player(Values.UNIT_WIDTH, Values.UNIT_WIDTH);
 			add(player);
 			
 			var camera:Camera = new EntityCamera(player,

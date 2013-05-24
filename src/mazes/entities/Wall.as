@@ -47,7 +47,11 @@ package mazes.entities
 		public function Wall() 
 		{
 			super(0, 0, new Square(Values.UNIT_WIDTH, 0x000000));
-			visible = false; // Rendered in ChunkRender
+			
+			visible	= false; // Rendered in ChunkRender
+			type	= "wall";
+			
+			width = height = Values.UNIT_WIDTH;
 		}
 		
 		override public function removed():void 

@@ -19,9 +19,9 @@ package mazes.graphics
 					
 		private function get diameter():uint { return 2 * radius; }
 		
-		public function Circle(radius:uint, color:uint)
+		public function Circle(diameter:uint, color:uint)
 		{
-			this.radius	= radius;
+			this.radius	= diameter / 2;
 			this.color	= color;
 			
 			buffer = new BitmapData(diameter, diameter, true, 0);

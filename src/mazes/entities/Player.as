@@ -16,6 +16,8 @@ package mazes.entities
 		public function Player(x:Number, y:Number) 
 		{
 			super(x, y, new Circle(Values.UNIT_WIDTH, 0x4444ee));
+			
+			width = height = Values.UNIT_WIDTH;
 		}
 		
 		override public function update():void 
@@ -35,8 +37,11 @@ package mazes.entities
 				dy *= Math.SQRT1_2;
 			}
 			
-			x += dx * 200 * FP.elapsed;
-			y += dy * 200 * FP.elapsed;
+			dx *= 200 * FP.elapsed;
+			dy *= 200 * FP.elapsed;
+			
+			if (!collide("wall", x + dx, y)) x += dx;
+			if (!collide("wall", x, y + dy)) y += dy;
 		}
 	}
 
